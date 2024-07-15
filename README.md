@@ -6,6 +6,7 @@ Java RESTful API criada para o Santander Dev Week 2024
 ```mermaid
 classDiagram
     class Usuario {
+        - Long id
         - String nome
         - Conta conta
         - FormaDePagamento[] formaDePagamento
@@ -14,6 +15,7 @@ classDiagram
     }
 
     class Conta {
+        - Long id
         - String numero
         - String agencia
         - String saldoDisponivel
@@ -21,16 +23,19 @@ classDiagram
     }
 
     class FormaDePagamento {
+        - Long id
         - String icone
         - String descricao
     }
 
     class Cartao {
+        - Long id
         - String numero
         - Number limite
     }
 
     class Noticia {
+        - Long id
         - String icone
         - String descricao
     }
