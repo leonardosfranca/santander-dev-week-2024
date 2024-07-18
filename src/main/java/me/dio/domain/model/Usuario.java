@@ -16,7 +16,7 @@ public class Usuario {
     @OneToOne(cascade = CascadeType.ALL)
     private Conta conta;
 
-    private List<Feature> features;
+//    private List<Feature> features;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Cartao cartao;
@@ -48,13 +48,13 @@ public class Usuario {
         this.conta = conta;
     }
 
-    public List<Feature> getFeatures() {
-        return features;
-    }
-
-    public void setFeature(List<Feature> features) {
-        this.features = features;
-    }
+//    public List<Feature> getFeatures() {
+//        return features;
+//    }
+//
+//    public void setFeature(List<Feature> features) {
+//        this.features = features;
+//    }
 
     public Cartao getCartao() {
         return cartao;

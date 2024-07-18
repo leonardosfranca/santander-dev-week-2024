@@ -5,17 +5,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
-import java.math.BigDecimal;
 @MappedSuperclass
 public abstract class Referencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String nome;
-
-    private BigDecimal limite;
+    private String icone;
+    private String descricao;
 
     public Long getId() {
         return id;
@@ -25,19 +22,19 @@ public abstract class Referencia {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getIcone() {
+        return icone;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setIcone(String icone) {
+        this.icone = icone;
     }
 
-    public BigDecimal getLimite() {
-        return limite;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setLimite(BigDecimal limite) {
-        this.limite = limite;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }
