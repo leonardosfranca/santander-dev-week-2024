@@ -16,7 +16,8 @@ public class Usuario {
     @OneToOne(cascade = CascadeType.ALL)
     private Conta conta;
 
-//    private List<Feature> features;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Feature> features;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Cartao cartao;
