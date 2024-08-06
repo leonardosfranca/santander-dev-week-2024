@@ -1,18 +1,17 @@
-package me.dio.service.impl;
+package me.dio.service;
 
 import me.dio.domain.model.Usuario;
 import me.dio.domain.repository.UsuarioRepository;
-import me.dio.service.UsuarioService;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
 
 @Service
-public class UserServiceImpl implements UsuarioService {
+public class UsuarioImpl implements UsuarioService{
 
     private final UsuarioRepository usuarioRepository;
 
-    public UserServiceImpl(UsuarioRepository usuarioRepository) {
+    public UsuarioImpl(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 
@@ -23,9 +22,9 @@ public class UserServiceImpl implements UsuarioService {
 
     @Override
     public Usuario create(Usuario usuarioToCreate) {
-        if (usuarioToCreate.getId() != null && usuarioRepository.existsById(usuarioToCreate.getId())) {
-            throw new IllegalArgumentException("Este ID de usuário já existe.");
+        if (usuarioRepository.existsByContaNumero(usuarioToCreate.getConta().getNumero())) {
+            throw new IllegalArgumentException("O número dessa conta já existe!");
         }
-        return null;
+        return usuarioRepository.save(usuarioToCreate);
     }
 }

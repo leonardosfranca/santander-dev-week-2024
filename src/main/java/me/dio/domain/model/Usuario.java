@@ -12,15 +12,14 @@ public class Usuario {
     private Long id;
 
     private String nome;
-
     @OneToOne(cascade = CascadeType.ALL)
     private Conta conta;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Feature> features;
-
     @OneToOne(cascade = CascadeType.ALL)
     private Cartao cartao;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<FormaPagamento> formaPagamento;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Noticia> noticias;
@@ -49,20 +48,20 @@ public class Usuario {
         this.conta = conta;
     }
 
-//    public List<Feature> getFeatures() {
-//        return features;
-//    }
-//
-//    public void setFeature(List<Feature> features) {
-//        this.features = features;
-//    }
-
     public Cartao getCartao() {
         return cartao;
     }
 
     public void setCartao(Cartao cartao) {
         this.cartao = cartao;
+    }
+
+    public List<FormaPagamento> getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(List<FormaPagamento> formaPagamento) {
+        this.formaPagamento = formaPagamento;
     }
 
     public List<Noticia> getNoticias() {
